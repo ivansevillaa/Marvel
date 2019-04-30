@@ -1,11 +1,11 @@
 import React from 'react'
 
-import './styles/app.css'
+import SearchBar from '../components/SearchBar.jsx'
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello world!</h1>
+      <SearchBar />
     </div>
   )
 }
