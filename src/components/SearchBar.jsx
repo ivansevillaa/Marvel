@@ -5,7 +5,6 @@ import './styles/search-bar.css'
 class SearchBar extends Component {
     render() {
         return(
-            <div className="wrap">
                 <div className="SearchBar">
                     <input 
                         type="text"
@@ -18,7 +17,6 @@ class SearchBar extends Component {
                         </svg>
                     </button>
                 </div>
-            </div>
         )
     }
 }

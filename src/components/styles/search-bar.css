@@ -6,9 +6,11 @@ body{
 }
 
 .SearchBar {
-  width: 100%;
+  width: 30%;
   position: relative;
-  display: flex;
+  display: flex;  
+  margin: 0 auto;
+  grid-area: Search;
 }
 
 .SearchBar-input {
@@ -47,16 +49,8 @@ body{
     fill: currentColor;
 }
 
-.wrap{
-    width: 30%;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 @media screen and (max-width: 768px) {
-    .wrap {
+    .SearchBar {
         width: 70%;
     }
 }
