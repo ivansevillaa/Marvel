@@ -19,7 +19,8 @@ class App extends Component {
   state = {
     loading: true,
     error: null,
-    characters: undefined
+    characters: undefined,
+    characterSelected: undefined
   }
 
   componentDidMount = () => {
@@ -37,6 +38,10 @@ class App extends Component {
     }
   }
 
+  handleOpenDetails = (character) => {
+    this.setState({ characterSelected: character })
+  }
+  
   render() {
     if (this.state.loading && !this.state.data) {
       return <p>Loanding...</p>
@@ -49,8 +54,11 @@ class App extends Component {
         <SearchBar />
         <Characters 
           characters={ this.state.characters }
+          handleOpenDetails={ this.handleOpenDetails }
+          />
+        <Details 
+          character={ this.state.characterSelected || this.state.characters[0] }
         />
-        <Details />
       </div>
     )
   }
