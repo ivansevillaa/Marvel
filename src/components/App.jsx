@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import './styles/App.css'
 
 import SearchBar from '../components/SearchBar.jsx'
-import Characters from '../components/Characters.jsx'
+import Characters from './CharactersList.jsx'
 import Details from '../components/Details.jsx';
 
 import md5 from 'md5';
@@ -19,7 +19,7 @@ class App extends Component {
   state = {
     loading: true,
     error: null,
-    data: undefined
+    characters: undefined
   }
 
   componentDidMount = () => {
@@ -30,18 +30,26 @@ class App extends Component {
     this.setState({loading: true, error: null})
     try {
       const request = await fetch(`${ API_URL }/characters?${ auth }&limit=5`)
-      const data =  await request.json()
-      this.setState({loading: false, data: data})
+      const characters =  await request.json()
+      this.setState({loading: false, characters: characters.data.results})
     } catch(error) {
       this.setState({loading: false, error: error})
     }
   }
 
   render() {
+    if (this.state.loading && !this.state.data) {
+      return <p>Loanding...</p>
+    }
+    if (this.state.error) {
+      return <p>{ this.state.error }</p>
+    }
     return (
       <div className="App">
         <SearchBar />
-        <Characters />
+        <Characters 
+          characters={ this.state.characters }
+        />
         <Details />
       </div>
     )

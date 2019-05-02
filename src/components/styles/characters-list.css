@@ -1,5 +1,6 @@
 .Characters {
     grid-area: Characters;
     display: flex;
-    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
 }
