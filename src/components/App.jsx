@@ -19,27 +19,38 @@ class App extends Component {
   state = {
     loading: true,
     error: null,
-    characters: undefined,
+    initialCharacters: undefined,
     characterSelected: undefined
   }
 
   componentDidMount = () => {
-    this.getCharacter()
+    this.fetchInitialCharacter()
   }
 
-  getCharacter = async () => {
-    this.setState({loading: true, error: null})
+  fetchInitialCharacter = async () => {
+    this.setState({ loading: true, error: null })
     try {
       const request = await fetch(`${ API_URL }/characters?${ auth }&limit=5`)
-      const characters =  await request.json()
-      this.setState({loading: false, characters: characters.data.results})
+      const initialCharacters =  await request.json()
+      this.setState({ loading: false, initialCharacters: initialCharacters.data.results })
     } catch(error) {
-      this.setState({loading: false, error: error})
+      this.setState({ loading: false, error: error })
     }
   }
-
+  
   handleOpenDetails = (character) => {
     this.setState({ characterSelected: character })
+  }
+  
+  characterSearched = async (query) => {
+    this.setState({ loading: true, error: null })
+    try {
+      const request = await fetch(`${ API_URL }/characters?${ auth }&limit=5&nameStartsWith=${ query }`)
+      const initialCharacters =  await request.json()
+      this.setState({ loading: false, initialCharacters: initialCharacters.data.results })
+    } catch(error) {
+      this.setState({ loading: false, error: error })
+    }
   }
   
   render() {
@@ -51,13 +62,15 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <SearchBar />
+        <SearchBar 
+          handleSearch={ this.characterSearched }
+        />
         <Characters 
-          characters={ this.state.characters }
+          characters={ this.state.initialCharacters }
           handleOpenDetails={ this.handleOpenDetails }
-          />
+        />
         <Details 
-          character={ this.state.characterSelected || this.state.characters[0] }
+          character={ this.state.characterSelected || this.state.initialCharacters[0] }
         />
       </div>
     )

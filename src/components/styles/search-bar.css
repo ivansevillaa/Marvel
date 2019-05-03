@@ -25,7 +25,7 @@ body{
 }
 
 .SearchBar-input:focus{
-  color: #00B4CC;
+  color: black;
 }
 
 .SearchBar-button {
