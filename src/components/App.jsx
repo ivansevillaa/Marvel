@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 
 import './styles/App.css'
 
-import SearchBar from '../components/SearchBar.jsx'
+import SearchBar from './SearchBar.jsx'
 import Characters from './CharactersList.jsx'
-import Details from '../components/Details.jsx';
+import Details from './Details.jsx'
+import Loading from './Loading.jsx'
 
 import md5 from 'md5';
 
@@ -19,7 +20,7 @@ class App extends Component {
   state = {
     loading: true,
     error: null,
-    initialCharacters: undefined,
+    initialCharacters: [],
     characterSelected: undefined
   }
 
@@ -52,10 +53,14 @@ class App extends Component {
       this.setState({ loading: false, error: error })
     }
   }
-  
+
+  setCharacterSelected = () => {
+    this.setState({ characterSelected: undefined })
+  }
+
   render() {
-    if (this.state.loading && !this.state.data) {
-      return <p>Loanding...</p>
+    if (this.state.loading) {
+      return <Loading />
     }
     if (this.state.error) {
       return <p>{ this.state.error }</p>
@@ -64,13 +69,15 @@ class App extends Component {
       <div className="App">
         <SearchBar 
           handleSearch={ this.characterSearched }
+          setCharacterSelected={ this.setCharacterSelected }
         />
         <Characters 
           characters={ this.state.initialCharacters }
           handleOpenDetails={ this.handleOpenDetails }
         />
         <Details 
-          character={ this.state.characterSelected || this.state.initialCharacters[0] }
+          character={ this.state.characterSelected }
+          lengthArrayCharacter={ this.state.initialCharacters.length }
         />
       </div>
     )
