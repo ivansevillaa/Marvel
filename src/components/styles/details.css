@@ -42,3 +42,19 @@
     list-style: none;
     margin-left: 1em;
 }
+
+@media screen and (max-width: 932px) {
+    .Details {
+        grid-area: Details;
+        display: grid;
+        grid-template: 75px 300px 200px 1fr / 1fr;
+        grid-template-areas: "name"
+                             "image"
+                             "description"
+                             "comics";
+    }
+
+    .Details-image {
+        width: 100%;
+    }
+}

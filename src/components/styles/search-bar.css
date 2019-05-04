@@ -49,7 +49,7 @@ body{
     fill: currentColor;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 932px) {
     .SearchBar {
         width: 70%;
     }

@@ -15,3 +15,14 @@
 .Character-rigth h3 {
     margin: 0;
 }
+
+@media screen and (max-width: 932px) {
+    .Character {
+        display: initial;
+        text-align: center
+    }
+
+    .Character-left {
+        margin-right: 0;
+    }
+}
