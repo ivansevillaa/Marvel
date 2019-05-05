@@ -12,13 +12,11 @@ App developed with React.Js and integrated with the Marvel API.
 
 - Marvel API integrated.  
 - Search for any character from the marvel world.  
-- Responsive Design  
+- Responsive Design:
 
-![screenshot-iPad](https://github.com/ivansevillaa/Marvel/blob/master/screenshots/screenshot-iPad.png)
+<img src="https://github.com/ivansevillaa/Marvel/blob/master/screenshots/screenshot-iPad.png" alt="screenshot-iPad" width="768px" height="1024px" />
 
-![screenshot-iPhone](https://github.com/ivansevillaa/Marvel/blob/master/screenshots/screenshot-iPhone.png) 
-
-
+<img src="https://github.com/ivansevillaa/Marvel/blob/master/screenshots/screenshot-iPhone.png" alt="screenshot-iPhone" width="414px" height="736px" />
 
 ## Try it
 
