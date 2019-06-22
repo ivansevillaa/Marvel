@@ -17,7 +17,3 @@ App developed with React.Js and integrated with the Marvel API.
 <img src="https://github.com/ivansevillaa/Marvel/blob/master/screenshots/screenshot-iPad.png" alt="screenshot-iPad" width="768px" height="1024px" />
 
 <img src="https://github.com/ivansevillaa/Marvel/blob/master/screenshots/screenshot-iPhone.png" alt="screenshot-iPhone" width="414px" height="736px" />
-
-## Try it
-
-[You can try it here](https://ivansevillaa.github.io/Marvel/)
